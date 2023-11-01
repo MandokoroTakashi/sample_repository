@@ -9,16 +9,23 @@
     // ここに処理を記述
     $("#button").on("click", function(){
       let target = $("#value").val();
-      switch(target){
-        case "1":
+      // switch(target){
+      //   case "1":
+      //   $("#box").css('background-color','red');
+      //   break;
+      //   case "2":
+      //   $("#box").css('background-color','green');
+      //   break;
+      //   case "3":
+      //   $("#box").css('background-color','blue');
+      //   break;
+      // }
+      if(target == 1){
         $("#box").css('background-color','red');
-        break;
-        case "2":
+      }else if(target == 2){
         $("#box").css('background-color','green');
-        break;
-        case "3":
+      } else {
         $("#box").css('background-color','blue');
-        break;
       }
     })
   });
