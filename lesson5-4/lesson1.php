@@ -1,4 +1,5 @@
 <?php
 //$helloWorldという変数にHello Worldという文字列を格納し出力してください。
 
-echo 'helloWorld';
+$hellloWorld = "Hello World";
+echo $hellloWorld;
