@@ -18,8 +18,10 @@ $arr = [99, 3, 12, 45, 60, 100, 31, 7, 28];
 // 1, 3, 2, 4
 // ↓
 // 1, 2, 3, 4　←これが画面に表示される
+// $arr = [3, 1, 2, 5, 4];
 
-$arr = [99, 3, 12, 45, 60, 100, 31, 7, 28];
+
+// $arr = [99, 3, 12, 45, 60, 100, 31, 7, 28];
 
 // ここで並び替え処理
 ?>
@@ -30,6 +32,34 @@ $arr = [99, 3, 12, 45, 60, 100, 31, 7, 28];
 <title>数字並び替えプログラム</title>
 </head>
 <body>
-    <!-- ここに並び替え後を表示 -->
+    <?php
+$count = count($arr);
+$no = 0;
+$result = '';
+for ($i = 0; $i < $count; $i++) {
+  for ($j = 1; $j < $count; $j++) {
+    if($arr[$j-1] > $arr[$j]) {
+      $subnum = $arr[$j]; 
+      $arr[$j] = $arr[$j-1]; 
+      $arr[$j-1] = $subnum; 
+      $checker = 0;
+      foreach($arr as $num){
+        if($checker === 0){
+            $result = $num;
+        } else{
+            $result = $result.", ".$num;
+        }
+          $checker++;
+          $no++;
+      }
+      if($no !== $count){
+          echo "↓"."<br/>";
+      }
+      echo $result."<br/>";
+      $result ='';
+    }
+  }
+}
+    ?>
 </body>
 </html>
