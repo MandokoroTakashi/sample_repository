@@ -2,7 +2,40 @@
 // 下記のようにlesson1のファイルをインポートしてください。
 // (他のファイルを参照する関数はいくつかあるので調べてください。)
 // (lesson1の文字列がそのまま出力されてしまっていても大丈夫とします。)
+require_once("lesson1.php");
+class Patient extends Person{
+  private float $height;
 
+  private float $weight;
+
+  function __construct($name, $age, $gender, $height, $weight){
+    parent:: __construct($name, $age, $gender);
+    // parent:: __construct($age);
+    // parent:: __construct($gender);
+    $this->height = $height;
+    $this->weight = $weight;
+  }
+
+  public function calculateStandardWeight(){
+    return $this->height** 2 * 22 ;
+  }
+
+  public function getHeight(){
+    return $this->height ;
+  }
+
+  public function getWeight(){
+    return $this->weight ;
+  }
+}
+
+$mandokoro = new Patient('政所', 30, '男', 1.83, 75);
+
+// echo $mandokoro -> calculateStandardWeight()."<br/>";
+// echo $mandokoro -> getHeight()."<br/>";
+// echo $mandokoro -> getWeight()."<br/>";
+
+echo $mandokoro ->name."さんの身長は".$mandokoro ->getHeight()."mなので平均体重は".$mandokoro ->calculateStandardWeight()."kgです。 現在の体重は".$mandokoro ->getWeight()."kgです。";
 
 // 下記のクラスを作成してください。
 
