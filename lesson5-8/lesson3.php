@@ -50,7 +50,7 @@ function nabeatsu($i)
     <section>
         <!-- ここに結果表示 -->
         <?php
-        echo nabeatsu(100);
+        nabeatsu(100);
         ?>
     </section>
 </body>
