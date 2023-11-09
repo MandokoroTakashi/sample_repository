@@ -9,7 +9,7 @@
 // 3回目の勝利です。
 // $_SESSIONの挙動やswitch文については調べてみてください。
 
-
+session_start();
 if (!isset($_SESSION['result'])) {
     $_SESSION['result'] = 0;
 }
@@ -39,8 +39,8 @@ class Player
 
 class Me extends Player
 {
-    private $name;
-    private $choice;
+    public $name;
+    public $choice;
 
     public function __construct(string $lastName, string $firstName, int $choice)
     {
@@ -143,7 +143,7 @@ class Battle
 // $sample = new Battle($me,$enemy);
 // echo $sample -> judge();
 
-if (!empty($_POST)) {
+if (!empty($_POST['last_name'])&&!empty($_POST['first_name'])&&!empty($_POST['choice'])) {
     $me    = new Me($_POST['last_name'], $_POST['first_name'], $_POST['choice']);
     $enemy = new Enemy();
     echo $me->getName().'は'.$me->getChoice().'を出しました。';
