@@ -65,7 +65,7 @@ class Me extends Player
 
 class Enemy extends Player
 {
-    // private $choice;
+    private $choice;
     public function __construct()
     {
         $this->choice = random_int(1, 3);
@@ -82,8 +82,8 @@ class Enemy extends Player
 
 class Battle
 {
-    // private $first;
-    // private $second;
+    private $first;
+    private $second;
     public function __construct(Me $me,Enemy $enemy)
     {
         $this->first  = $me->getChoice();
