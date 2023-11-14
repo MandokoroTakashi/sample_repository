@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>クリックイベントと切り替え</title>
+  <link rel="stylesheet" type="text/css" href="base.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  <script>
+  $(function(){
+    // ここに処理を記述
+    //一番最初に考えた方法
+    // $('#button1').click(function(){
+    //   if($('#button2').hasClass('clicked')){
+    //     $('#button2').removeClass('clicked');
+    //   }else{
+    //     $('#button3').removeClass('clicked');
+    //   }
+    //   $('#button1').toggleClass("clicked");
+    // })
+    // $('#button2').click(function(){
+    //   if($('#button1').hasClass('clicked')){
+    //     $('#button1').removeClass('clicked');
+    //   }else{
+    //     $('#button3').removeClass('clicked');
+    //   }
+    //   $('#button2').toggleClass("clicked");
+    // })
+    // $('#button3').click(function(){
+    //   if($('#button2').hasClass('clicked')){
+    //     $('#button2').removeClass('clicked');
+    //   }else{
+    //     $('#button1').removeClass('clicked');
+    //   }
+    //   $('#button3').toggleClass("clicked");
+    // })
+
+    //二番目に考えた方法
+    $('#button1').click(function(){
+      $('#wrapper div').not('#button1').removeClass('clicked');
+      $('#button1').toggleClass("clicked");
+    })
+    $('#button2').click(function(){
+      $('#wrapper div').not('#button2').removeClass('clicked');
+      $('#button2').toggleClass("clicked");
+    })
+    $('#button3').click(function(){
+      $('#wrapper div').not('#button3').removeClass('clicked');
+      $('#button3').toggleClass("clicked");
+    })
+    
+  });
+  </script>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="button1" class="button">
+      <p>button1</p>
+    </div><!-- button1 -->
+    <div id="button2" class="button">
+      <p>button2</p>
+    </div><!-- button2 -->
+    <div id="button3" class="button">
+      <p>button3</p>
+    </div><!-- button3 -->
+  </div><!-- wrapper -->
+</body>
+</html>
