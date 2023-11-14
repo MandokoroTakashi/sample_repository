@@ -3,7 +3,7 @@
 SELECT
     name
 FROM
-    countries
+    `countries`
 ;
 
 -- 問2
@@ -11,7 +11,7 @@ FROM
 SELECT
     *
 FROM
-    countries
+    `countries`
 WHERE
     continent = 'Europe'
 ;
@@ -126,7 +126,7 @@ FROM
     `countries`
 WHERE
     indep_year < 1990
-OR  population >= 100000
+OR  population > 100000
 ;
 
 -- 問13
@@ -156,7 +156,7 @@ FROM
 SELECT
     concat(name, 'の人口は', population, 'です') as POPULATION
 FROM
-    countries
+    `countries`
 ;
 
 
@@ -253,7 +253,7 @@ SELECT
 FROM
     `countries`
 WHERE
-    continent = 'asia'
+    continent = 'Asia'
 ;
 
 -- 問24
@@ -263,7 +263,7 @@ SELECT
 FROM
     `countries`
 WHERE
-    continent = 'asia'
+    continent = 'Asia'
 ;
 
 
@@ -275,7 +275,7 @@ SELECT
 FROM
     `countries`
     JOIN
-        countrylanguages
+        `countrylanguages`
     ON  countries.code = countrylanguages.country_code
 ;
 
@@ -291,7 +291,7 @@ FROM
         `cities`
     ON  countries.code = cities.country_code
     JOIN
-        countrylanguages
+        `countrylanguages`
     ON  countries.code = countrylanguages.country_code
 ;
 
@@ -303,7 +303,7 @@ SELECT
 FROM
     `celebrities`
     LEFT OUTER JOIN
-        countries
+        `countries`
     ON  celebrities.country_code = countries.code
 ;
 
@@ -318,22 +318,22 @@ FROM
         SELECT
             *
         FROM
-            countrylanguages
+            `countrylanguages`
         WHERE
             percentage IN(
                 SELECT
                     MAX(percentage) AS max_p
                 FROM
-                    countrylanguages
+                    `countrylanguages`
                 GROUP BY
                     country_code
             )
             )as lang
             JOIN
-                celebrities
+                `celebrities`
             ON  lang.country_code = celebrities.country_code
             JOIN
-                countries
+                `countries`
             ON  countries.code = celebrities.country_code
 ;
 
@@ -360,7 +360,7 @@ SELECT
     MAX(ce.age),
     MIN(ce.age)
 FROM
-    celebrities AS ce
+    `celebrities` AS ce
 GROUP BY
     country_code
 HAVING MAX(ce.age) >= 50
