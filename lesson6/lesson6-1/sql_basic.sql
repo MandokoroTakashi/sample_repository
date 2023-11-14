@@ -135,21 +135,20 @@ SELECT
     *
 FROM
     `countries`
-WHERE
-    code = 'DZA'
-OR  code = 'ALB'
+WHERE 
+    (code = 'DZA'
+OR  code = 'ALB')
 AND indep_year < 1990
 ;
 
 
 -- 問14
 -- 全ての地方をグループ化せずに表示してください。
-SELECT
+SELECT DISTINCT
     region
 FROM
     `countries`
 ;
-
 
 -- 問15
 -- 国名と人口を以下のように表示させてください。シングルクォートに注意してください。
@@ -199,7 +198,7 @@ WHERE
     life_expectancy IS NOT NULL
 ORDER BY
     life_expectancy DESC,
-    indep_year ASC
+    indep_year DESC
 ;
 
 -- 問19
@@ -253,9 +252,8 @@ SELECT
     MIN(surface_area) as 'アジアの最小面積'
 FROM
     `countries`
-GROUP BY
-    continent
-HAVING continent = 'asia'
+WHERE
+    continent = 'asia'
 ;
 
 -- 問24
@@ -264,9 +262,8 @@ SELECT
     SUM(surface_area) as 'アジア大陸の表面積合計'
 FROM
     `countries`
-GROUP BY
-    continent
-HAVING continent = 'asia'
+WHERE
+    continent = 'asia'
 ;
 
 
